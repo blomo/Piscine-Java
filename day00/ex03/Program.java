@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Program {
     static void printStatistics(long nbr, int i) {
         for (int j = 1; j != i; j++) {
