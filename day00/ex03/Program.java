@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Program {
     static void printStatistics(long nbr, int i) {
         for (int j = 1; j != i; j++) {
@@ -34,10 +32,12 @@ public class Program {
                 System.exit(-1);
             } else {
                 String grades = scan.nextLine();
-                int min_grade = 10;
-                for (int j = 0; j < 10; j += 2) {
-                    if (min_grade > (int) grades.charAt(j) - 48) {
-                        min_grade = (int) grades.charAt(j) - 48;
+                Scanner test = new Scanner(grades);
+                int min_grade = test.nextInt();
+                for (int j = 0; j < 4; j++) {
+                    int temp = test.nextInt();
+                    if (min_grade > temp) {
+                        min_grade = temp;
                     }
                 }
                 data += rankNbr(i - 1) * min_grade;
