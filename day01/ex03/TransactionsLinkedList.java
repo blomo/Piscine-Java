@@ -21,13 +21,13 @@ public class TransactionsLinkedList implements TransactionsList {
     }
 
     public void removeTransaction(String uuid) {
-        if (head.current.Identifier.equals(uuid)) {
+        if (head.current.getIdentifier().equals(uuid)) {
             head = head.next;
             return;
         }
         node ptr = head;
         while (ptr != null) {
-            if (ptr.next.current.Identifier.equals(uuid)) {
+            if (ptr.next.current.getIdentifier().equals(uuid)) {
                 ptr.next = ptr.next.next;
                 break;
             }

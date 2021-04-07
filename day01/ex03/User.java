@@ -1,29 +1,36 @@
 public class User {
-    TransactionsLinkedList operation;
     private Integer id;
-    String Name;
-    Integer Balance;
+    private String Name;
+    private Integer Balance;
+    TransactionsLinkedList operation;
 
-    User(String name) {
+    User(String name, int sum) {
         this.id = UserIdsGenerator.getInstance().generateId();
         this.Name = name;
         operation = new TransactionsLinkedList();
-
-    }
-
-    public void setBalance(int balance) {
-        if (balance < 0) {
-            balance = 0;
+        if (sum < 0) {
+            this.Balance = 0;
+        } else {
+            this.Balance = sum;
         }
-        this.Balance = balance;
+
+
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
-    public int getBalance(int sum) {
-        return Balance;
+    public void setBalance(int balance) {
+        this.Balance = balance;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public int getBalance() {
+        return this.Balance;
     }
 
     public void printBalance() {

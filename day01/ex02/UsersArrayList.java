@@ -1,8 +1,8 @@
 public class UsersArrayList implements UsersList {
-    User[] data;
+    private User[] data;
 
     UsersArrayList() {
-        this.data = new User[1];
+        this.data = new User[10];
     }
 
     public void addUser(User new_user) {
@@ -28,7 +28,7 @@ public class UsersArrayList implements UsersList {
         int len = data.length;
         for (int i = 0; i < len; i++) {
             if (data[i] != null)
-                System.out.println(data[i].Name);
+                System.out.println(data[i].getName());
         }
     }
 
