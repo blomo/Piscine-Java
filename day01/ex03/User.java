@@ -1,21 +1,25 @@
 public class User {
-    Integer Identifier;
+    TransactionsLinkedList operation;
+    private Integer id;
     String Name;
     Integer Balance;
 
-    User(int i, String name, int sum) {
-        this.Identifier = i;
+    User(String name) {
+        this.id = UserIdsGenerator.getInstance().generateId();
         this.Name = name;
-        if (sum < 0) {
-            System.err.println("User balance cannot be negative");
-            System.exit(-1);
-        }
-        this.Balance = sum;
+        operation = new TransactionsLinkedList();
 
     }
 
     public void setBalance(int balance) {
+        if (balance < 0) {
+            balance = 0;
+        }
         this.Balance = balance;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getBalance(int sum) {
@@ -25,4 +29,5 @@ public class User {
     public void printBalance() {
         System.out.println(Balance);
     }
+
 }
